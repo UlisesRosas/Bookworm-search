@@ -45,35 +45,35 @@ const resolvers = {
             //    to indicate sign in
             return { token, user };
         },
+        
         // saveBook
         // this context param makes sure the user is signed in while performing this mutation
-        saveBook: async (parent, { bookId }, context) => {
+        saveBook: async (parent, { bookData }, context) => {
             // if user is signed in
             if (context.user) {
                 // finds the user to update
                 const addBook = await User.findByIdAndUpdate(
                     // gets the user id from context
                     { _id: context.user._id },
-                    // updates the array with book id and without duplicates
-                    { $addToSet: { saveBooks: bookId } },
+                    // This array is from the User model
+                    { $addToSet: { savedBooks: bookData } },
                     // insures that the updated version of the array is shown
                     { new: true }
                     // populates the array in to the User model
-                ).populate('saveBooks');
-
+                )
                 return addBook;
             }
             throw new AuthenticationError('You ned to be logged in');
         },
         //removeBook
         // ?????? 
-        removeBook: async (parent,args, context) => {
+        removeBook: async (parent, { bookId }, context) => {
             if (context.user) {
                 const takeBook = User.findByIdAndUpdate(
                     // gets the user id from context
                     { _id: context.user._id },
                     // updates the array with book id and without duplicates
-                    { $pull: { saveBooks: args.book.bookId } },
+                    { $pull: { savedBooks: {bookId} } },
                     // insures that the updated version of the array is shown
                     { new: true }
                 )
