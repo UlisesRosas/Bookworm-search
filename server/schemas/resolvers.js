@@ -23,8 +23,7 @@ const resolvers = {
             const user = await User.create(args);
             // authenticates the user
             const token = signToken(user);
-            console.log(token);
-            console.log(user);
+
             return { token, user };
         },
         // login
