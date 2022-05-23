@@ -52,6 +52,7 @@ const resolvers = {
             // if user is signed in
             if (context.user) {
                 // finds the user to update
+                // a;ternatively you can use find one and update
                 const addBook = await User.findByIdAndUpdate(
                     // gets the user id from context
                     { _id: context.user._id },
