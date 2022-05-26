@@ -1,7 +1,7 @@
 # Bookworm-search Search
 
 ## Description
-Bookworm-search is an social app about books. This app gives the user the ability to interact with
+Bookworm-search is a social app about books. This app gives the user the ability to interact with
 a users favorite books and to also find a users preferd book in different ways.
 
 ## Application
@@ -15,7 +15,7 @@ Below is the link to this application
 *JWS *GraphQl
 
 ## Instalation
-1. Clone the repo By running  "git clone `<ssh path>`" in the comand line 
+1. Clone the repo ry running  "git clone `<ssh path>`" in the comand line 
 2. Run "npm i" in the comand line 
 3. To start the app run "npm run develop"
 
